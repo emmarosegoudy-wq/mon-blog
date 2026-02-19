@@ -1,0 +1,1219 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Les personnes handicapées</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@300;500;700&family=Work+Sans:wght@300;400;600;700&display=swap");
+
+      :root {
+        --ink: #10212a;
+        --ink-soft: #2b3f49;
+        --paper: #f5f0e8;
+        --sun: #f2b705;
+        --coral: #f08062;
+        --sea: #3a7f87;
+        --rose: #f7d7cf;
+        --card: #ffffff;
+        --shadow: 0 24px 60px rgba(16, 33, 42, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Work Sans", "Helvetica Neue", sans-serif;
+        color: var(--ink);
+        background: linear-gradient(120deg, #f7efe7 0%, #fef9f3 55%, #f1f7f6 100%);
+      }
+
+      header {
+        position: relative;
+        overflow: hidden;
+        padding: 80px 8vw 48px;
+      }
+
+      header::before,
+      header::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        opacity: 0.55;
+        z-index: 0;
+      }
+
+      header::before {
+        width: 420px;
+        height: 420px;
+        background: radial-gradient(circle at 30% 30%, var(--sun), transparent 70%);
+        top: -160px;
+        right: -120px;
+      }
+
+      header::after {
+        width: 360px;
+        height: 360px;
+        background: radial-gradient(circle at 30% 30%, var(--coral), transparent 70%);
+        bottom: -160px;
+        left: -140px;
+      }
+
+      .wrap {
+        position: relative;
+        z-index: 1;
+        max-width: 1060px;
+        margin: 0 auto;
+      }
+
+      nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      nav a {
+        color: var(--ink-soft);
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 4px;
+        transition: border-color 0.2s ease, color 0.2s ease;
+      }
+
+      nav a:hover,
+      nav a:focus-visible {
+        color: var(--ink);
+        border-color: var(--sea);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Fraunces", "Georgia", serif;
+        letter-spacing: -0.01em;
+      }
+
+      h1 {
+        font-size: clamp(2.6rem, 4vw, 4rem);
+        margin: 38px 0 16px;
+      }
+
+      .subtitle {
+        font-size: 1.15rem;
+        color: var(--ink-soft);
+        max-width: 620px;
+        line-height: 1.6;
+      }
+
+      .hero-card {
+        margin-top: 36px;
+        background: var(--card);
+        padding: 28px;
+        border-radius: 28px;
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 16px;
+      }
+
+      .hero-card strong {
+        color: var(--sea);
+      }
+
+      .lang-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .lang-switcher button {
+        border: 1px solid rgba(16, 33, 42, 0.15);
+        background: #fff;
+        color: var(--ink);
+        padding: 8px 14px;
+        border-radius: 999px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .lang-switcher button[aria-pressed="true"] {
+        background: var(--sea);
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .lang-block {
+        display: none;
+      }
+
+      .lang-block.is-active {
+        display: block;
+      }
+
+      .lang-inline {
+        display: none;
+      }
+
+      .lang-inline.is-active {
+        display: inline;
+      }
+
+      main {
+        padding: 40px 8vw 90px;
+      }
+
+      section {
+        margin: 50px 0;
+        display: grid;
+        gap: 16px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .card {
+        background: var(--card);
+        padding: 22px;
+        border-radius: 20px;
+        box-shadow: 0 18px 40px rgba(16, 33, 42, 0.08);
+        border: 1px solid rgba(16, 33, 42, 0.05);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: var(--rose);
+        color: var(--ink);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .quote {
+        border-left: 4px solid var(--sea);
+        padding-left: 18px;
+        font-style: italic;
+        color: var(--ink-soft);
+      }
+
+      .photo {
+        margin: 24px 0 8px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .photo img {
+        width: 100%;
+        border-radius: 18px;
+        box-shadow: 0 18px 40px rgba(16, 33, 42, 0.12);
+        border: 1px solid rgba(16, 33, 42, 0.08);
+      }
+
+      .photo figcaption {
+        font-size: 0.95rem;
+        color: var(--ink-soft);
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 10px;
+      }
+
+      .contact-form label {
+        font-weight: 600;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid rgba(16, 33, 42, 0.2);
+        border-radius: 8px;
+        font: inherit;
+        background: #fff;
+      }
+
+      .contact-form button {
+        width: fit-content;
+        background: #0f1b20;
+        color: #fff;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .contact-note {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #6f7b80;
+      }
+
+      footer {
+        padding: 30px 8vw 60px;
+        background: #0f1b20;
+        color: #f3efe8;
+      }
+
+      footer a {
+        color: #f3efe8;
+      }
+
+      .footer-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      @media (max-width: 700px) {
+        header {
+          padding-top: 64px;
+        }
+
+        nav {
+          gap: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <nav aria-label="Navigation principale">
+          <a href="#presentation">
+            <span class="lang-inline is-active" data-lang="fr">Présentation</span>
+            <span class="lang-inline" data-lang="en">Intro</span>
+            <span class="lang-inline" data-lang="es">Presentación</span>
+            <span class="lang-inline" data-lang="it">Presentazione</span>
+            <span class="lang-inline" data-lang="pt">Apresentação</span>
+            <span class="lang-inline" data-lang="de">Einführung</span>
+          </a>
+          <a href="#histoire">
+            <span class="lang-inline is-active" data-lang="fr">Mon histoire</span>
+            <span class="lang-inline" data-lang="en">My story</span>
+            <span class="lang-inline" data-lang="es">Mi historia</span>
+            <span class="lang-inline" data-lang="it">La mia storia</span>
+            <span class="lang-inline" data-lang="pt">Minha história</span>
+            <span class="lang-inline" data-lang="de">Meine Geschichte</span>
+          </a>
+          <a href="#conseils">
+            <span class="lang-inline is-active" data-lang="fr">Conseils</span>
+            <span class="lang-inline" data-lang="en">Advice</span>
+            <span class="lang-inline" data-lang="es">Consejos</span>
+            <span class="lang-inline" data-lang="it">Consigli</span>
+            <span class="lang-inline" data-lang="pt">Conselhos</span>
+            <span class="lang-inline" data-lang="de">Tipps</span>
+          </a>
+          <a href="#ressources">
+            <span class="lang-inline is-active" data-lang="fr">Ressources</span>
+            <span class="lang-inline" data-lang="en">Resources</span>
+            <span class="lang-inline" data-lang="es">Recursos</span>
+            <span class="lang-inline" data-lang="it">Risorse</span>
+            <span class="lang-inline" data-lang="pt">Recursos</span>
+            <span class="lang-inline" data-lang="de">Ressourcen</span>
+          </a>
+          <a href="#contact">
+            <span class="lang-inline is-active" data-lang="fr">Contact</span>
+            <span class="lang-inline" data-lang="en">Contact</span>
+            <span class="lang-inline" data-lang="es">Contacto</span>
+            <span class="lang-inline" data-lang="it">Contatto</span>
+            <span class="lang-inline" data-lang="pt">Contato</span>
+            <span class="lang-inline" data-lang="de">Kontakt</span>
+          </a>
+        </nav>
+
+        <div id="presentation">
+          <div class="lang-block is-active" data-lang="fr">
+            <h1>Les personnes sont parfaitement différentes</h1>
+            <p class="subtitle">
+              Ici, je partage mon parcours et des conseils concrets pour mieux vivre avec
+              un handicap au quotidien, en famille et à l'école.
+            </p>
+          </div>
+          <div class="lang-block" data-lang="en">
+            <h1>People are perfectly different</h1>
+            <p class="subtitle">
+              Here I share my journey and practical advice to live better with disability
+              in daily life, at home, and at school.
+            </p>
+          </div>
+          <div class="lang-block" data-lang="es">
+            <h1>Las personas son perfectamente diferentes</h1>
+            <p class="subtitle">
+              Aquí comparto mi recorrido y consejos concretos para vivir mejor con la
+              discapacidad en la vida diaria, en familia y en la escuela.
+            </p>
+          </div>
+          <div class="lang-block" data-lang="it">
+            <h1>Le persone sono perfettamente diverse</h1>
+            <p class="subtitle">
+              Qui condivido il mio percorso e consigli pratici per vivere meglio con la
+              disabilità nella vita quotidiana, in famiglia e a scuola.
+            </p>
+          </div>
+          <div class="lang-block" data-lang="pt">
+            <h1>As pessoas são perfeitamente diferentes</h1>
+            <p class="subtitle">
+              Aqui compartilho meu percurso e conselhos práticos para viver melhor com a
+              deficiência no dia a dia, em família e na escola.
+            </p>
+          </div>
+          <div class="lang-block" data-lang="de">
+            <h1>Menschen sind perfekt verschieden</h1>
+            <p class="subtitle">
+              Hier teile ich meinen Weg und praktische Tipps, um mit einer Behinderung im
+              Alltag, in der Familie und in der Schule besser zu leben.
+            </p>
+          </div>
+
+          <div class="hero-card">
+            <span class="pill">
+              <span class="lang-inline is-active" data-lang="fr">Présentation</span>
+              <span class="lang-inline" data-lang="en">Intro</span>
+              <span class="lang-inline" data-lang="es">Presentación</span>
+              <span class="lang-inline" data-lang="it">Presentazione</span>
+              <span class="lang-inline" data-lang="pt">Apresentação</span>
+              <span class="lang-inline" data-lang="de">Einführung</span>
+            </span>
+
+            <div class="lang-block is-active" data-lang="fr">
+              <p>
+                Bonjour, je m'appelle Emma Rose Goudy. Je suis une personne handicapée
+                (paralysie cérébrale) et je souhaite vous présenter mon histoire. Mon objectif
+                est d'aider les parents et les proches à soutenir leurs enfants avec
+                bienveillance, écoute et confiance.
+              </p>
+              <p>
+                <strong>Message clé :</strong> chaque personne a ses forces, et la différence
+                peut devenir une source de fierté quand elle est accueillie avec respect.
+              </p>
+            </div>
+            <div class="lang-block" data-lang="en">
+              <p>
+                Hello, my name is Emma Rose Goudy. I live with a disability (cerebral palsy)
+                and I want to share my story. My goal is to help parents and loved ones
+                support their children with kindness, listening, and confidence.
+              </p>
+              <p>
+                <strong>Key message:</strong> everyone has strengths, and difference can
+                become a source of pride when it is welcomed with respect.
+              </p>
+            </div>
+            <div class="lang-block" data-lang="es">
+              <p>
+                Hola, me llamo Emma Rose Goudy. Vivo con una discapacidad (parálisis cerebral)
+                y quiero compartir mi historia. Mi objetivo es ayudar a los padres y seres
+                queridos a apoyar a sus hijos con amabilidad, escucha y confianza.
+              </p>
+              <p>
+                <strong>Mensaje clave:</strong> cada persona tiene fortalezas, y la diferencia
+                puede convertirse en una fuente de orgullo cuando se recibe con respeto.
+              </p>
+            </div>
+            <div class="lang-block" data-lang="it">
+              <p>
+                Ciao, mi chiamo Emma Rose Goudy. Vivo con una disabilità (paralisi cerebrale)
+                e voglio condividere la mia storia. Il mio obiettivo è aiutare genitori e
+                persone care a sostenere i propri figli con gentilezza, ascolto e fiducia.
+              </p>
+              <p>
+                <strong>Messaggio chiave:</strong> ognuno ha dei punti di forza e la differenza
+                può diventare motivo di orgoglio quando è accolta con rispetto.
+              </p>
+            </div>
+            <div class="lang-block" data-lang="pt">
+              <p>
+                Olá, meu nome é Emma Rose Goudy. Vivo com uma deficiência (paralisia cerebral)
+                e quero compartilhar minha história. Meu objetivo é ajudar pais e familiares
+                a apoiar seus filhos com gentileza, escuta e confiança.
+              </p>
+              <p>
+                <strong>Mensagem principal:</strong> cada pessoa tem seus pontos fortes, e a
+                diferença pode se tornar motivo de orgulho quando é acolhida com respeito.
+              </p>
+            </div>
+            <div class="lang-block" data-lang="de">
+              <p>
+                Hallo, ich heiße Emma Rose Goudy. Ich lebe mit einer Behinderung
+                (Zerebralparese) und möchte meine Geschichte teilen. Mein Ziel ist es, Eltern
+                und Angehörige dabei zu unterstützen, ihre Kinder mit Freundlichkeit, Zuhören
+                und Vertrauen zu begleiten.
+              </p>
+              <p>
+                <strong>Kernbotschaft:</strong> Jeder Mensch hat Stärken, und Unterschiedlichkeit
+                kann zu einer Quelle des Stolzes werden, wenn sie respektvoll angenommen wird.
+              </p>
+            </div>
+
+            <div class="lang-switcher" role="group" aria-label="Choisir la langue">
+              <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+              <button type="button" data-lang="en" aria-pressed="false">EN</button>
+              <button type="button" data-lang="es" aria-pressed="false">ES</button>
+              <button type="button" data-lang="it" aria-pressed="false">IT</button>
+              <button type="button" data-lang="pt" aria-pressed="false">PT-BR</button>
+              <button type="button" data-lang="de" aria-pressed="false">DE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <figure class="photo">
+        <img src="image/WhatsApp Image 2026-02-09 at 17.45.09.jpeg" alt="Mes thérapies" />
+        <figcaption>
+          <span class="lang-inline is-active" data-lang="fr">Mes thérapies.</span>
+          <span class="lang-inline" data-lang="en">My therapies.</span>
+          <span class="lang-inline" data-lang="es">Mis terapias.</span>
+          <span class="lang-inline" data-lang="it">Le mie terapie.</span>
+          <span class="lang-inline" data-lang="pt">Minhas terapias.</span>
+          <span class="lang-inline" data-lang="de">Meine Therapien.</span>
+        </figcaption>
+      </figure>
+
+      <section id="histoire">
+        <div class="lang-block is-active" data-lang="fr">
+          <h2>Mon histoire</h2>
+          <p>
+            Mon parcours m'a appris qu'on avance mieux quand on se sent compris. J'ai connu
+            des moments de découragement, mais aussi des victoires du quotidien : apprendre,
+            me faire des ami(e)s, oser demander de l'aide et prendre ma place.
+          </p>
+          <p class="quote">
+            "Je ne suis pas réduite à mon handicap. Je suis une personne entière, avec mes
+            rêves, mes talents et mon humour."
+          </p>
+        </div>
+        <div class="lang-block" data-lang="en">
+          <h2>My story</h2>
+          <p>
+            My path taught me that we move forward better when we feel understood. I have
+            faced discouraging moments, but also everyday victories: learning, making
+            friends, asking for help, and finding my place.
+          </p>
+          <p class="quote">
+            "I am not reduced to my disability. I am a whole person, with my dreams, my
+            talents, and my humor."
+          </p>
+        </div>
+        <div class="lang-block" data-lang="es">
+          <h2>Mi historia</h2>
+          <p>
+            Mi recorrido me enseñó que avanzamos mejor cuando nos sentimos comprendidos.
+            He vivido momentos difíciles, pero también pequeñas victorias: aprender, hacer
+            amigos, pedir ayuda y ocupar mi lugar.
+          </p>
+          <p class="quote">
+            "No soy solo mi discapacidad. Soy una persona completa, con mis sueños, mis
+            talentos y mi humor."
+          </p>
+        </div>
+        <div class="lang-block" data-lang="it">
+          <h2>La mia storia</h2>
+          <p>
+            Il mio percorso mi ha insegnato che si va avanti meglio quando ci si sente
+            capiti. Ho vissuto momenti difficili, ma anche piccole vittorie quotidiane:
+            imparare, fare amicizia, chiedere aiuto e prendere il mio posto.
+          </p>
+          <p class="quote">
+            "Non sono ridotta alla mia disabilità. Sono una persona intera, con i miei
+            sogni, i miei talenti e il mio umorismo."
+          </p>
+        </div>
+        <div class="lang-block" data-lang="pt">
+          <h2>Minha história</h2>
+          <p>
+            Meu percurso me ensinou que avançamos melhor quando nos sentimos compreendidos.
+            Vivi momentos de desânimo, mas também pequenas vitórias do dia a dia: aprender,
+            fazer amigos, pedir ajuda e ocupar meu lugar.
+          </p>
+          <p class="quote">
+            "Não sou reduzida à minha deficiência. Sou uma pessoa inteira, com meus sonhos,
+            meus talentos e meu humor."
+          </p>
+        </div>
+        <div class="lang-block" data-lang="de">
+          <h2>Meine Geschichte</h2>
+          <p>
+            Mein Weg hat mir gezeigt, dass wir besser vorankommen, wenn wir uns verstanden
+            fühlen. Ich hatte schwierige Momente, aber auch Alltags‑Erfolge: lernen,
+            Freundschaften schließen, um Hilfe bitten und meinen Platz einnehmen.
+          </p>
+          <p class="quote">
+            "Ich bin nicht auf meine Behinderung reduziert. Ich bin ein ganzer Mensch,
+            mit meinen Träumen, meinen Talenten und meinem Humor."
+          </p>
+        </div>
+      </section>
+
+      <figure class="photo">
+        <img src="image/WhatsApp Image 2026-02-09 at 17.44.55.jpeg" alt="Course en joëlette" />
+        <figcaption>
+          <span class="lang-inline is-active" data-lang="fr">Course en joëlette.</span>
+          <span class="lang-inline" data-lang="en">Joëlette race.</span>
+          <span class="lang-inline" data-lang="es">Carrera en joëlette.</span>
+          <span class="lang-inline" data-lang="it">Gara in joëlette.</span>
+          <span class="lang-inline" data-lang="pt">Corrida de joëlette.</span>
+          <span class="lang-inline" data-lang="de">Joëlette‑Rennen.</span>
+        </figcaption>
+      </figure>
+
+      <section id="conseils">
+        <div class="lang-block is-active" data-lang="fr">
+          <h2>Conseils pour les familles</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Écouter vraiment</h3>
+              <p>
+                Demandez à votre enfant ce qui est difficile pour lui/elle et ce qui l'aide.
+                Les besoins changent avec le temps, alors gardez le dialogue ouvert.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Valoriser les réussites</h3>
+              <p>
+                Célébrez les progrès, même petits. La confiance grandit quand on met en avant
+                les efforts et pas seulement le résultat.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Créer des routines rassurantes</h3>
+              <p>
+                Des repères simples (horaires, rituels, objets familiers) réduisent le stress
+                et aident à se sentir en sécurité.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Travailler en équipe</h3>
+              <p>
+                Coopérez avec l'école, les professionnels et la famille élargie. Une même
+                vision, partagée, rend le quotidien plus doux.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang-block" data-lang="en">
+          <h2>Advice for families</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Listen deeply</h3>
+              <p>
+                Ask your child what feels hard and what helps. Needs change over time, so
+                keep the conversation open.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Celebrate progress</h3>
+              <p>
+                Celebrate small wins. Confidence grows when we value effort, not only results.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Create reassuring routines</h3>
+              <p>
+                Simple routines (schedules, rituals, familiar objects) reduce stress and
+                help children feel safe.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Work as a team</h3>
+              <p>
+                Collaborate with school, professionals, and extended family. A shared vision
+                makes daily life gentler.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang-block" data-lang="es">
+          <h2>Consejos para las familias</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Escuchar de verdad</h3>
+              <p>
+                Pregunte a su hijo qué es difícil y qué le ayuda. Las necesidades cambian,
+                así que mantenga el diálogo abierto.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Valorar los logros</h3>
+              <p>
+                Celebre los avances, aunque sean pequeños. La confianza crece cuando valoramos
+                el esfuerzo y no solo el resultado.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Crear rutinas tranquilizadoras</h3>
+              <p>
+                Rutinas simples (horarios, rituales, objetos familiares) reducen el estrés y
+                ayudan a sentirse seguros.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Trabajar en equipo</h3>
+              <p>
+                Colabore con la escuela, profesionales y la familia. Una visión compartida
+                hace el día a día más fácil.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang-block" data-lang="it">
+          <h2>Consigli per le famiglie</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Ascoltare davvero</h3>
+              <p>
+                Chiedete a vostro figlio cosa è difficile e cosa lo aiuta. I bisogni cambiano,
+                quindi mantenete il dialogo aperto.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Valorizzare i progressi</h3>
+              <p>
+                Celebrate i piccoli passi. La fiducia cresce quando si valorizza lo sforzo,
+                non solo il risultato.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Creare routine rassicuranti</h3>
+              <p>
+                Routine semplici (orari, rituali, oggetti familiari) riducono lo stress e
+                aiutano a sentirsi al sicuro.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Lavorare in squadra</h3>
+              <p>
+                Collaborate con la scuola, i professionisti e la famiglia allargata. Una
+                visione condivisa rende la quotidianità più serena.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang-block" data-lang="pt">
+          <h2>Conselhos para as famílias</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Ouvir de verdade</h3>
+              <p>
+                Pergunte ao seu filho o que é difícil e o que o ajuda. As necessidades mudam
+                com o tempo, então mantenha o diálogo aberto.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Valorizar os progressos</h3>
+              <p>
+                Celebre as pequenas conquistas. A confiança cresce quando valorizamos o
+                esforço, e não apenas o resultado.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Criar rotinas tranquilizadoras</h3>
+              <p>
+                Rotinas simples (horários, rituais, objetos familiares) reduzem o estresse e
+                ajudam a se sentir seguro.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Trabalhar em equipe</h3>
+              <p>
+                Colabore com a escola, profissionais e a família. Uma visão compartilhada
+                deixa o dia a dia mais leve.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang-block" data-lang="de">
+          <h2>Tipps für Familien</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Wirklich zuhören</h3>
+              <p>
+                Fragen Sie Ihr Kind, was schwierig ist und was hilft. Bedürfnisse verändern
+                sich mit der Zeit, also halten Sie den Dialog offen.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Erfolge wertschätzen</h3>
+              <p>
+                Feiern Sie kleine Fortschritte. Selbstvertrauen wächst, wenn wir den Einsatz
+                würdigen und nicht nur das Ergebnis.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Beruhigende Routinen schaffen</h3>
+              <p>
+                Einfache Routinen (Zeitpläne, Rituale, vertraute Dinge) reduzieren Stress und
+                geben Sicherheit.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Als Team arbeiten</h3>
+              <p>
+                Arbeiten Sie mit Schule, Fachleuten und der Familie zusammen. Eine gemeinsame
+                Sicht macht den Alltag leichter.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ressources">
+        <div class="lang-block is-active" data-lang="fr">
+          <h2>Ressources utiles</h2>
+          <p>
+            Au printemps 2014, mes parents ont créé une association pour aider les enfants et
+            adultes en situation de handicap à vivre au-delà des limites. Si vous voulez
+            participer à une de nos activités, contactez
+            <a href="mailto:contact@handi-capable.org">contact@handi-capable.org</a> ou
+            <a href="https://handi-capable.org">accédez à la page de l'association</a>.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <h3>Questions à poser</h3>
+              <ul>
+                <li>Quels aménagements peuvent aider mon enfant à l'école ?</li>
+                <li>Quelles activités valorisent ses talents ?</li>
+                <li>Qui peut nous soutenir quand nous sommes fatigués ?</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Idées d'activités</h3>
+              <p>
+                Dessin, musique, jeux de rôle, petites responsabilités à la maison : tout ce
+                qui encourage l'autonomie est précieux.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Accessibilité au quotidien</h3>
+              <p>
+                Pensez aux détails : un coin calme pour se reposer, des consignes simples, un
+                rythme adapté, et des outils qui facilitent la communication.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang-block" data-lang="en">
+          <h2>Helpful resources</h2>
+          <p>
+            In spring 2014, my parents created an association to help children and adults
+            with disabilities live beyond limits. If you want to join one of our activities,
+            contact <a href="mailto:contact@handi-capable.org">contact@handi-capable.org</a>
+            or <a href="https://handi-capable.org">visit the association page</a>.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <h3>Questions to ask</h3>
+              <ul>
+                <li>What school accommodations can help my child?</li>
+                <li>Which activities highlight their talents?</li>
+                <li>Who can support us when we are tired?</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Activity ideas</h3>
+              <p>
+                Drawing, music, role play, small responsibilities at home: anything that
+                encourages independence is valuable.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Everyday accessibility</h3>
+              <p>
+                Think about details: a quiet corner to rest, simple instructions, an adapted
+                pace, and tools that make communication easier.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang-block" data-lang="es">
+          <h2>Recursos útiles</h2>
+          <p>
+            En la primavera de 2014, mis padres crearon una asociación para ayudar a niños y
+            adultos con discapacidad a vivir más allá de los límites. Si quieres participar
+            en alguna actividad, escribe a
+            <a href="mailto:contact@handi-capable.org">contact@handi-capable.org</a> o
+            <a href="https://handi-capable.org">visita la página de la asociación</a>.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <h3>Preguntas para hacer</h3>
+              <ul>
+                <li>¿Qué adaptaciones escolares pueden ayudar a mi hijo?</li>
+                <li>¿Qué actividades destacan sus talentos?</li>
+                <li>¿Quién puede apoyarnos cuando estamos cansados?</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Ideas de actividades</h3>
+              <p>
+                Dibujo, música, juegos de rol, pequeñas responsabilidades en casa: todo lo
+                que fomente la autonomía es valioso.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Accesibilidad diaria</h3>
+              <p>
+                Piensa en los detalles: un rincón tranquilo para descansar, instrucciones
+                sencillas, un ritmo adaptado y herramientas que faciliten la comunicación.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang-block" data-lang="it">
+          <h2>Risorse utili</h2>
+          <p>
+            Nella primavera del 2014, i miei genitori hanno creato un'associazione per aiutare
+            bambini e adulti con disabilità a vivere oltre i limiti. Se vuoi partecipare a
+            una delle nostre attività, contatta
+            <a href="mailto:contact@handi-capable.org">contact@handi-capable.org</a> o
+            <a href="https://handi-capable.org">visita la pagina dell'associazione</a>.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <h3>Domande da fare</h3>
+              <ul>
+                <li>Quali adattamenti scolastici possono aiutare mio figlio?</li>
+                <li>Quali attività valorizzano i suoi talenti?</li>
+                <li>Chi può sostenerci quando siamo stanchi?</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Idee di attività</h3>
+              <p>
+                Disegno, musica, giochi di ruolo, piccole responsabilità in casa: tutto ciò
+                che incoraggia l'autonomia è prezioso.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Accessibilità quotidiana</h3>
+              <p>
+                Pensa ai dettagli: un angolo tranquillo per riposare, istruzioni semplici,
+                un ritmo adatto e strumenti che facilitano la comunicazione.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang-block" data-lang="pt">
+          <h2>Recursos úteis</h2>
+          <p>
+            Na primavera de 2014, meus pais criaram uma associação para ajudar crianças e
+            adultos com deficiência a viver além dos limites. Se você quiser participar de
+            alguma atividade, entre em contato pelo
+            <a href="mailto:contact@handi-capable.org">contact@handi-capable.org</a> ou
+            <a href="https://handi-capable.org">visite a página da associação</a>.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <h3>Perguntas a fazer</h3>
+              <ul>
+                <li>Quais adaptações escolares podem ajudar meu filho?</li>
+                <li>Quais atividades valorizam seus talentos?</li>
+                <li>Quem pode nos apoiar quando estamos cansados?</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Ideias de atividades</h3>
+              <p>
+                Desenho, música, jogos de interpretação, pequenas responsabilidades em casa:
+                tudo o que incentiva a autonomia é valioso.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Acessibilidade no dia a dia</h3>
+              <p>
+                Pense nos detalhes: um canto tranquilo para descansar, instruções simples,
+                um ritmo adaptado e ferramentas que facilitem a comunicação.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="lang-block" data-lang="de">
+          <h2>Hilfreiche Ressourcen</h2>
+          <p>
+            Im Frühjahr 2014 haben meine Eltern eine Vereinigung gegründet, um Kindern und
+            Erwachsenen mit Behinderung zu helfen, über Grenzen hinaus zu leben. Wenn Sie an
+            einer unserer Aktivitäten teilnehmen möchten, schreiben Sie an
+            <a href="mailto:contact@handi-capable.org">contact@handi-capable.org</a> oder
+            <a href="https://handi-capable.org">besuchen Sie die Seite der Vereinigung</a>.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <h3>Fragen, die man stellen kann</h3>
+              <ul>
+                <li>Welche schulischen Anpassungen können meinem Kind helfen?</li>
+                <li>Welche Aktivitäten fördern seine Talente?</li>
+                <li>Wer kann uns unterstützen, wenn wir müde sind?</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>Ideen für Aktivitäten</h3>
+              <p>
+                Zeichnen, Musik, Rollenspiele, kleine Aufgaben zu Hause: alles, was
+                Selbstständigkeit fördert, ist wertvoll.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Barrierefreiheit im Alltag</h3>
+              <p>
+                Denken Sie an Details: eine ruhige Ecke zum Ausruhen, einfache Anweisungen,
+                ein angepasstes Tempo und Hilfsmittel, die die Kommunikation erleichtern.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="lang-block is-active" data-lang="fr">
+          <h2>Me contacter</h2>
+          <p>
+            Si vous souhaitez échanger ou partager votre expérience, écrivez-moi. Ensemble,
+            nous pouvons créer une communauté bienveillante.
+          </p>
+        </div>
+        <div class="lang-block" data-lang="en">
+          <h2>Contact me</h2>
+          <p>
+            If you want to connect or share your experience, write to me. Together we can
+            build a caring community.
+          </p>
+        </div>
+        <div class="lang-block" data-lang="es">
+          <h2>Contactarme</h2>
+          <p>
+            Si quieres conversar o compartir tu experiencia, escríbeme. Juntos podemos crear
+            una comunidad solidaria.
+          </p>
+        </div>
+        <div class="lang-block" data-lang="it">
+          <h2>Contattami</h2>
+          <p>
+            Se vuoi parlare o condividere la tua esperienza, scrivimi. Insieme possiamo
+            creare una comunità accogliente.
+          </p>
+        </div>
+        <div class="lang-block" data-lang="pt">
+          <h2>Contato</h2>
+          <p>
+            Se você quiser conversar ou compartilhar sua experiência, escreva para mim.
+            Juntos podemos criar uma comunidade acolhedora.
+          </p>
+        </div>
+        <div class="lang-block" data-lang="de">
+          <h2>Kontakt</h2>
+          <p>
+            Wenn Sie sich austauschen oder Ihre Erfahrungen teilen möchten, schreiben Sie
+            mir. Gemeinsam können wir eine unterstützende Gemeinschaft aufbauen.
+          </p>
+        </div>
+
+        <div class="card">
+          <form class="contact-form" action="https://formspree.io/f/mzzpoyqk" method="POST">
+            <label for="name">
+              <span class="lang-inline is-active" data-lang="fr">Nom :</span>
+              <span class="lang-inline" data-lang="en">Name:</span>
+              <span class="lang-inline" data-lang="es">Nombre:</span>
+              <span class="lang-inline" data-lang="it">Nome:</span>
+              <span class="lang-inline" data-lang="pt">Nome:</span>
+              <span class="lang-inline" data-lang="de">Name:</span>
+            </label>
+            <input id="name" type="text" name="name" required />
+
+            <label for="email">
+              <span class="lang-inline is-active" data-lang="fr">Email :</span>
+              <span class="lang-inline" data-lang="en">Email:</span>
+              <span class="lang-inline" data-lang="es">Correo:</span>
+              <span class="lang-inline" data-lang="it">Email:</span>
+              <span class="lang-inline" data-lang="pt">Email:</span>
+              <span class="lang-inline" data-lang="de">E-Mail:</span>
+            </label>
+            <input id="email" type="email" name="email" required />
+
+            <label for="message">
+              <span class="lang-inline is-active" data-lang="fr">Message :</span>
+              <span class="lang-inline" data-lang="en">Message:</span>
+              <span class="lang-inline" data-lang="es">Mensaje:</span>
+              <span class="lang-inline" data-lang="it">Messaggio:</span>
+              <span class="lang-inline" data-lang="pt">Mensagem:</span>
+              <span class="lang-inline" data-lang="de">Nachricht:</span>
+            </label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">
+              <span class="lang-inline is-active" data-lang="fr">Envoyer</span>
+              <span class="lang-inline" data-lang="en">Send</span>
+              <span class="lang-inline" data-lang="es">Enviar</span>
+              <span class="lang-inline" data-lang="it">Invia</span>
+              <span class="lang-inline" data-lang="pt">Enviar</span>
+              <span class="lang-inline" data-lang="de">Senden</span>
+            </button>
+          </form>
+          <p class="contact-note">
+            <span class="lang-inline is-active" data-lang="fr">Vous recevrez une réponse par email.</span>
+            <span class="lang-inline" data-lang="en">You will receive a reply by email.</span>
+            <span class="lang-inline" data-lang="es">Recibirás una respuesta por correo electrónico.</span>
+            <span class="lang-inline" data-lang="it">Riceverai una risposta via email.</span>
+            <span class="lang-inline" data-lang="pt">Você receberá uma resposta por email.</span>
+            <span class="lang-inline" data-lang="de">Sie erhalten eine Antwort per E-Mail.</span>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <h3>
+            <span class="lang-inline is-active" data-lang="fr">Merci de votre visite</span>
+            <span class="lang-inline" data-lang="en">Thanks for visiting</span>
+            <span class="lang-inline" data-lang="es">Gracias por tu visita</span>
+            <span class="lang-inline" data-lang="it">Grazie per la visita</span>
+            <span class="lang-inline" data-lang="pt">Obrigado pela visita</span>
+            <span class="lang-inline" data-lang="de">Danke für Ihren Besuch</span>
+          </h3>
+          <p>
+            <span class="lang-inline is-active" data-lang="fr">
+              Ce site est un espace de partage autour du handicap, de l'inclusion et de
+              l'espoir.
+            </span>
+            <span class="lang-inline" data-lang="en">
+              This site is a space for sharing around disability, inclusion, and hope.
+            </span>
+            <span class="lang-inline" data-lang="es">
+              Este sitio es un espacio de intercambio sobre discapacidad, inclusión y
+              esperanza.
+            </span>
+            <span class="lang-inline" data-lang="it">
+              Questo sito è uno spazio di condivisione su disabilità, inclusione e speranza.
+            </span>
+            <span class="lang-inline" data-lang="pt">
+              Este site é um espaço de partilha sobre deficiência, inclusão e esperança.
+            </span>
+            <span class="lang-inline" data-lang="de">
+              Diese Seite ist ein Ort des Austauschs über Behinderung, Inklusion und Hoffnung.
+            </span>
+          </p>
+        </div>
+        <div>
+          <h3>
+            <span class="lang-inline is-active" data-lang="fr">Rappel</span>
+            <span class="lang-inline" data-lang="en">Reminder</span>
+            <span class="lang-inline" data-lang="es">Recordatorio</span>
+            <span class="lang-inline" data-lang="it">Promemoria</span>
+            <span class="lang-inline" data-lang="pt">Lembrete</span>
+            <span class="lang-inline" data-lang="de">Hinweis</span>
+          </h3>
+          <p>
+            <span class="lang-inline is-active" data-lang="fr">
+              Chaque parcours est unique. N'hésitez pas à demander de l'aide et à prendre
+              soin de vous aussi.
+            </span>
+            <span class="lang-inline" data-lang="en">
+              Every journey is unique. Don't hesitate to ask for help and to take care of
+              yourself too.
+            </span>
+            <span class="lang-inline" data-lang="es">
+              Cada camino es único. No dudes en pedir ayuda y cuidarte también.
+            </span>
+            <span class="lang-inline" data-lang="it">
+              Ogni percorso è unico. Non esitare a chiedere aiuto e a prenderti cura di te.
+            </span>
+            <span class="lang-inline" data-lang="pt">
+              Cada jornada é única. Não hesite em pedir ajuda e em cuidar de você também.
+            </span>
+            <span class="lang-inline" data-lang="de">
+              Jeder Weg ist einzigartig. Zögern Sie nicht, um Hilfe zu bitten und auch auf
+              sich selbst zu achten.
+            </span>
+          </p>
+        </div>
+        <div>
+          <h3>
+            <span class="lang-inline is-active" data-lang="fr">Navigation</span>
+            <span class="lang-inline" data-lang="en">Navigation</span>
+            <span class="lang-inline" data-lang="es">Navegación</span>
+            <span class="lang-inline" data-lang="it">Navigazione</span>
+            <span class="lang-inline" data-lang="pt">Navegação</span>
+            <span class="lang-inline" data-lang="de">Navigation</span>
+          </h3>
+          <p>
+            <a href="#presentation">
+              <span class="lang-inline is-active" data-lang="fr">Présentation</span>
+              <span class="lang-inline" data-lang="en">Intro</span>
+              <span class="lang-inline" data-lang="es">Presentación</span>
+              <span class="lang-inline" data-lang="it">Presentazione</span>
+              <span class="lang-inline" data-lang="pt">Apresentação</span>
+              <span class="lang-inline" data-lang="de">Einführung</span>
+            </a>
+            ·
+            <a href="#conseils">
+              <span class="lang-inline is-active" data-lang="fr">Conseils</span>
+              <span class="lang-inline" data-lang="en">Advice</span>
+              <span class="lang-inline" data-lang="es">Consejos</span>
+              <span class="lang-inline" data-lang="it">Consigli</span>
+              <span class="lang-inline" data-lang="pt">Conselhos</span>
+              <span class="lang-inline" data-lang="de">Tipps</span>
+            </a>
+            ·
+            <a href="#ressources">
+              <span class="lang-inline is-active" data-lang="fr">Ressources</span>
+              <span class="lang-inline" data-lang="en">Resources</span>
+              <span class="lang-inline" data-lang="es">Recursos</span>
+              <span class="lang-inline" data-lang="it">Risorse</span>
+              <span class="lang-inline" data-lang="pt">Recursos</span>
+              <span class="lang-inline" data-lang="de">Ressourcen</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const langButtons = document.querySelectorAll(".lang-switcher button");
+      const langBlocks = document.querySelectorAll(".lang-block");
+      const langInline = document.querySelectorAll(".lang-inline");
+
+      function setLanguage(lang) {
+        langBlocks.forEach((block) => {
+          block.classList.toggle("is-active", block.dataset.lang === lang);
+        });
+        langInline.forEach((inline) => {
+          inline.classList.toggle("is-active", inline.dataset.lang === lang);
+        });
+        langButtons.forEach((button) => {
+          button.setAttribute("aria-pressed", button.dataset.lang === lang ? "true" : "false");
+        });
+        document.documentElement.lang = lang;
+      }
+
+      langButtons.forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.lang));
+      });
+
+      setLanguage("fr");
+    </script>
+  </body>
+</html>
